@@ -1,5 +1,18 @@
 ## Dockerコンテナ内で動かすnpmプログラム周り
 
+`package.json`
+```
+{
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.9.1",
+    "express": "^4.18.3"
+  }
+}
+```
+
 `app.js`
 ```
 const express = require("express");
@@ -464,17 +477,4 @@ app.get("/admin", adminAuth, (req, res) => {
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
-```
-
-`package.json`
-```
-{
-  "scripts": {
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "better-sqlite3": "^11.9.1",
-    "express": "^4.18.3"
-  }
-}
 ```
