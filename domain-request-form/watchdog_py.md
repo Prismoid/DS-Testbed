@@ -1,6 +1,6 @@
 ## メール送付用のプログラム(`./watchdog`ディレクトリ内)
 
-``クライアントID、シークレット情報
+`credentials.json `: クライアントID、シークレットなどの情報
 ```
 {
   "installed": {
@@ -174,7 +174,7 @@ if __name__ == "__main__":
     main()
 ```
 
-`watchdog.py`: DBを監視し、アップデート(追加)があったら、呼び出すプログラム。
+`watchdog.py`: DBを監視し、アップデート(追加)があったら、`notifier.py`を呼び出すプログラム。
 ```
 import json
 import sqlite3
