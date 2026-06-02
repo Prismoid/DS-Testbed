@@ -1,3 +1,50 @@
+
+## Python スクリプトをバックグラウンドで実行する方法
+
+## Python スクリプトをバックグラウンドで実行する方法
+
+### 起動
+
+ログを `watchdog.log` に保存し、PID を `watchdog.pid` に記録する。
+
+```bash
+nohup python3 watchdog.py > watchdog.log 2>&1 &
+echo $! > watchdog.pid
+```
+
+### ログ確認
+
+```bash
+tail -f watchdog.log
+```
+
+### 実行中プロセスの確認
+
+```bash
+ps aux | grep watchdog.py
+```
+
+### 終了
+
+```bash
+kill $(cat watchdog.pid)
+```
+
+### 強制終了
+
+通常の `kill` で止まらない場合のみ実行する。
+
+```bash
+kill -9 $(cat watchdog.pid)
+```
+
+### PID ファイルを使わずに終了する場合
+
+```bash
+pkill -f watchdog.py
+```
+
+
 ## メール送付用のプログラム(`./watchdog`ディレクトリ内)
 
 `credentials.json `: クライアントID、シークレットなどの情報
